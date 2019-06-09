@@ -14,7 +14,7 @@ SCALINGMAXFREQUENCY="scaling_max_freq";
 
 SOCTEMPCMD="/sys/class/thermal/thermal_zone0/temp"
 
-REGULATOR_HANDLER="/sys/class/regulator/regulator.2"
+REGULATOR_HANDLER="/sys/class/regulator/regulator.5"
 REGULATOR_MICROVOLT="microvolts"
 
 ROOT=$(pwd)
@@ -91,7 +91,7 @@ function bench_loop()
 {
     AVAILABLEFREQUENCIES=$(cat ${CPUFREQ_HANDLER}/${SCALINGAVAILABLEFREQUENCIES})
 
-    export LC_ALL=zh_CN.UTF-8
+#    export LC_ALL=zh_CN.UTF-8
     for FREQUENCY in $AVAILABLEFREQUENCIES
     do
         if [ $FREQUENCY -ge $MINFREQUENCY ] && [ $FREQUENCY -le $MAXFREQUENCY ];
